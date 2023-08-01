@@ -1,0 +1,429 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+/* Barra de botones */
+.barra-botones {
+    background-color: #00396e;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lista {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.barra-botones ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.barra-botones ul li {
+    margin-right: 15px;
+}
+
+.barra-botones ul li:last-child {
+    margin-right: 0;
+}
+
+.barra-botones ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+.barra-botones ul li a:hover {
+    background-color: #555;
+}
+
+/* Estilos para el icono de usuario */
+.icono-usuario {
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Estilos para el contenedor de opciones de usuario */
+.opciones-usuario {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background-color: #00396e;
+    padding: 10px;
+    border-radius: 4px;
+    display: none;
+}
+
+/* Mostrar las opciones de usuario cuando la clase "mostrar" está activa */
+.opciones-usuario.mostrar {
+    display: block;
+}
+
+.opciones-usuario a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+/* Estilos del slider */
+.slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.slider-container {
+    display: flex;
+    transition: transform 1s;
+}
+
+.slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Estilos para la nueva sección del formulario */
+.formulario-section {
+    padding: 40px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.formulario {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.formulario h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #00396e;
+}
+
+.formulario label,
+.formulario input {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.formulario input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.formulario button {
+    width: 100%;
+    padding: 12px;
+    background-color: #00396e;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.formulario button:hover {
+    background-color: #005c9e;
+}
+
+.formulario p {
+    font-size: 14px;
+    color: #777;
+    margin-top: 10px;
+}
+
+.formulario a {
+    color: #00396e;
+    text-decoration: none;
+}
+
+/* Estilos para el contenedor del texto que aparece arriba de la imagen */
+.texto-imagen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    z-index: 1;
+}
+
+.texto-imagen h2 {
+    font-size: 53px;
+    margin-bottom: 20px;
+    transition: font-size 0.5s ease;
+}
+
+.texto-imagen p {
+    font-size: 20px;
+    max-width: 700px;
+    margin: 0 auto 20px;
+}
+
+.texto-imagen a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #00396e;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+}
+
+/* Nueva sección con el objetivo de la página y el resumen de uso */
+.informacion-section {
+    padding: 40px;
+    text-align: center;
+    background-color: #f7f7f7;
+    display: flex;
+    align-items: center;
+}
+
+.informacion-section .texto-central {
+    flex: 1;
+}
+
+.informacion-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #00396e;
+}
+
+.informacion-section p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Estilos para la sección de características de SecureCitySjr */
+.caracteristicas-section {
+    padding: 40px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.caracteristicas-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #00396e;
+}
+
+.caracteristicas-section p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.caracteristicas-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.caracteristica {
+    flex: 1;
+    max-width: 300px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.caracteristica i {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #00396e;
+}
+
+.caracteristica h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.caracteristica p {
+    font-size: 16px;
+    color: #777;
+    line-height: 1.6;
+}
+
+/* Sección de contacto */
+.contacto-section {
+    padding: 40px;
+    text-align: center;
+    background-color: #f7f7f7;
+}
+
+.contacto-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #00396e;
+}
+
+.contacto-section p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.formulario {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.formulario h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #00396e;
+}
+
+.formulario label,
+.formulario input,
+.formulario textarea {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.formulario textarea {
+    resize: vertical;
+}
+
+.formulario button {
+    width: 100%;
+    padding: 12px;
+    background-color: #00396e;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.formulario button:hover {
+    background-color: #005c9e;
+}
+
+/* Sección de blog */
+.blog-section {
+    padding: 40px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.blog-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #00396e;
+}
+
+.blog-section p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Sección de galería de imágenes */
+.galeria-section {
+    padding: 40px;
+    text-align: center;
+    background-color: #f7f7f7;
+}
+
+.galeria-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #00396e;
+}
+
+.galeria-section p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Sección de videos */
+.videos-section {
+    padding: 40px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.videos-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #00396e;
+}
+
+.videos-section p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Sección de preguntas frecuentes */
+.faq-section {
+    padding: 40px;
+    text-align: center;
+    background-color: #f7f7f7;
+}
+
+.faq-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #00396e;
+}
+
+.faq-section p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Pie de página */
+.pie-pagina {
+    padding: 20px;
+    text-align: center;
+    background-color: #00396e;
+    color: #fff;
+}
+
+.pie-pagina p {
+    font-size: 14px;
+    margin: 0;
+}
