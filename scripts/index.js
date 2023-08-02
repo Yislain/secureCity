@@ -1,15 +1,16 @@
 const express = require('express');
+const session = require('express-session'); // Agrega esta línea
 const app = express();
 const path = require('path');
 require("dotenv").config();
 
 app.use(session({
-  secret:process.env.SESSION_SECRETO,
-  resave:true,
-  saveUninitialized:true
+  secret: process.env.SESSION_SECRETO,
+  resave: true,
+  saveUninitialized: true
 }));
 
-var port=process.env.PORT || 3000;
+var port = process.env.PORT || 3000;
 
 // Configuración del motor de plantillas EJS
 app.set('view engine', 'ejs');
@@ -36,7 +37,7 @@ app.get('/nosotros', (req, res) => {
   res.render('nosotros'); // Renderiza la página "nosotros"
 });
 
-// Inicia el servidor en el puerto 3000
-app.listen(3000, () => {
-  console.log('Servidor iniciado en http://localhost:3000');
+// Inicia el servidor en el puerto definido por 'port' variable
+app.listen(port, () => {
+  console.log(`Servidor iniciado en http://localhost:${port}`);
 });
