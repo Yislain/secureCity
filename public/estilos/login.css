@@ -1,0 +1,103 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+/* Estilos para el encabezado */
+.encabezado {
+    background-color: #00396e;
+    padding: 10px;
+    text-align: center; /* Centrar el texto del encabezado */
+}
+
+.header-text h1 {
+    margin: 0;
+    
+}
+
+.header-text a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Estilos para el formulario de inicio de sesión */
+.formulario-section {
+    display: flex;
+    justify-content: center; /* Centrar el formulario horizontalmente */
+    align-items: center; /* Centrar el formulario verticalmente */
+    min-height: 70vh; /* Ajustar el formulario al 100% del alto de la pantalla */
+    margin-top: 0vh; /* Mover el formulario hacia arriba */
+}
+
+.formulario {
+    max-width: 400px;
+    width: 80%; /* Reducir el ancho del formulario */
+    padding: 50px; /* Aumentar el padding para que se vea más grande */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.formulario h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #00396e;
+    margin-left:117px;
+}
+
+.formulario input {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.formulario button {
+    width: 100%;
+    padding: 12px;
+    background-color: #00396e;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.formulario button:hover {
+    background-color: #005c9e;
+}
+
+.formulario p {
+    font-size: 14px;
+    color: #777;
+    margin-top: 10px;
+    text-align: center; /* Centrar el texto del párrafo */
+}
+
+.formulario a {
+    color: #00396e;
+    text-decoration: none;
+}
+
+/* Pie de página */
+.pie-pagina {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    background-color: #00396e;
+    color: #fff;
+}
+
+.pie-pagina p {
+    font-size: 14px;
+    margin: 0;
+}

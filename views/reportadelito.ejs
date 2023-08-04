@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureCitySjr - Prevención y Seguridad en San Juan del Río, Querétaro</title>
+    <link rel="stylesheet" href="/estilos/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="/estilos/scripts.js" defer></script>
+</head>
+<body>
+    <header class="barra-botones">
+        <div class="logo-container">
+            <img src="imagenes/logosinfondo.png" alt="Logo de SecureCitySjr">
+        </div>
+        <div class="lista">
+            <ul>
+                <li><a href="/inicio">INICIO</a></li>
+                <li><a href="/prevencion">PREVENCIÓN</a></li>
+                <li><a href="/reportadelito">REPORTA UN DELITO</a></li>
+                <li><a href="/nosotros">NOSOTROS</a></li>
+            </ul>
+        </div>
+        <div class="usuario">
+            <i class="fas fa-user icono-usuario"></i>
+            <div class="opciones-usuario">
+                <a href="/registro">Regístrate</a>
+                <a href="/login">Iniciar Sesión</a>
+            </div>
+        </div>
+    </header>
+   
+    
+    <section class="reportar-delito-section">
+       
+        <div class="formulario">
+            <!-- Aquí puedes agregar el formulario para reportar el delito -->
+            <!-- Por ejemplo: -->
+            <div class="texto-central">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h2>Reporta un Delito</h2>
+                <p>Si has sido testigo o víctima de un delito en San Juan del Río, Querétaro, te invitamos a reportarlo para contribuir a la seguridad de nuestra comunidad. Tu colaboración es fundamental.</p>
+            </div>
+            
+            <form>
+                <label for="tipo-delito">Tipo de Delito</label>
+<select id="tipo-delito" name="tipo-delito" required>
+    <option value="" disabled selected>Selecciona un tipo de delito</option>
+    <option value="extorsiones">Extorsiones</option>
+    <option value="robo-violento-transeunte">Robo a Transeúnte con Violencia</option>
+    <option value="robo-violento-vehiculo">Robo de Vehículo con Violencia</option>
+    <option value="narcomenudeo">Narcomenudeo</option>
+</select>
+
+                <label for="descripcion-delito">Descripción del Delito</label>
+                <textarea id="descripcion-delito" placeholder="Describe como ocurrio tu incidente" name="descripcion-delito" rows="4" required></textarea>
+
+                <label for="colonia">Colonia donde ocurrió el suceso</label>
+            <select id="colonia" name="colonia" required>
+                <option value="" disabled selected>Selecciona una colonia</option>
+                <option value="Centro Histórico">Centro Histórico</option>
+                <option value="Benito Juárez">Benito Juárez</option>
+                <option value="San Cayetano">San Cayetano</option>
+                <option value="San Rafael">San Rafael</option>
+                <option value="San Sebastián">San Sebastián</option>
+                <option value="La Floresta">La Floresta</option>
+                <option value="Las Rosas">Las Rosas</option>
+                <option value="Los Álamos">Los Álamos</option>
+                <option value="Los Fresnos">Los Fresnos</option>
+                <option value="Los Olvera">Los Olvera</option>
+                <option value="Los Presidentes">Los Presidentes</option>
+                <option value="Santa Bárbara">Santa Bárbara</option>
+                <option value="El Rocío">El Rocío</option>
+                <option value="Lomas de San Juan">Lomas de San Juan</option>
+                <option value="Las Haciendas">Las Haciendas</option>
+                <option value="La Loma">La Loma</option>
+                <option value="Niños Héroes">Niños Héroes</option>
+                <option value="La Estancia">La Estancia</option>
+                <option value="El Progreso">El Progreso</option>
+                <option value="San Isidro">San Isidro</option>
+                <option value="La Llave">La Llave</option>
+            </select>
+
+                <label for="nombre">Tu Nombre</label>
+                <input type="text" id="nombre" name="nombre" required>
+    
+                <label for="email">Tu Email</label>
+                <input type="email" id="email" name="email" required>
+    
+                <button type="submit">Enviar Reporte</button>
+            </form>
+        </div>
+    </section>
+     <!-- Sección de preguntas frecuentes -->
+     <section class="faq-section">
+        <h2>Preguntas frecuentes</h2>
+        <p>Encuentra respuestas a las preguntas más comunes sobre nuestra plataforma y servicios.</p>
+        <button type="button" class="boton-preguntas" onclick="mostrarPreguntasFrecuentes()">Ver preguntas frecuentes</button>
+        <div class="preguntas-frecuentes" style="display: none;">
+            <p>1. ¿Cómo puedo reportar un delito?</p>
+            <p>2. ¿Cómo puedo obtener información sobre los patrones de robos en mi zona?</p>
+            <p>3. ¿Qué hacer si fui víctima de un robo?</p>
+            <p>4. ¿Dónde puedo encontrar consejos de seguridad?</p>
+        </div>
+    </section>
+    
+    <!-- Pie de página -->
+    <footer class="pie-pagina">
+        <p>Derechos de autor © 2023 SecureCitySjr. Todos los derechos reservados.</p>
+    </footer>
+   
+</body>
+</html>

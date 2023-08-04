@@ -23,7 +23,7 @@ window.addEventListener("scroll", ajustarDesvanecer);
 
 // Ajustar la posición de la barra de botones al bajar y subir en la página
 function ajustarBarraBotones() {
-    const distanciaDesdeArriba = barraBotones.getBoundingClientRect();
+    const distanciaDesdeArriba = barraBotones.getBoundingClientRect().top;
 
     // Obtener la altura del encabezado
     const alturaEncabezado = encabezado.offsetHeight;
@@ -32,8 +32,37 @@ function ajustarBarraBotones() {
         barraBotones.classList.add("barra-fija");
     } else {
         barraBotones.classList.remove("barra-fija");
-    } 
+    }
 }
 
 // Agregar un evento al desplazarse para ajustar la posición de la barra de botones
 window.addEventListener("scroll", ajustarBarraBotones);
+
+// Función para crear un usuario administrador
+function crearUsuarioAdministrador() {
+    const nuevoUsuario = {
+        nombre: 'Nombre del administrador',
+        email: 'admin@example.com',
+        contrasena: 'contrasena_del_admin'
+    };
+
+    // Realizar una solicitud HTTP al servidor para crear el usuario
+    fetch('/crear-admin', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(nuevoUsuario)
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Manejar la respuesta del servidor
+        console.log(data.mensaje); // Mensaje del servidor
+    })
+    .catch(error => {
+        console.error('Error al crear el usuario de administrador:', error);
+    });
+}
+
+// Llamar a la función para crear el usuario al cargar la página
+crearUsuarioAdministrador();

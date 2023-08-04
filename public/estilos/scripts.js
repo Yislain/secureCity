@@ -1,7 +1,6 @@
 // Obtener el botón de usuario y el contenedor de opciones de usuario
 const iconoUsuario = document.querySelector(".icono-usuario");
 const opcionesUsuario = document.querySelector(".opciones-usuario");
-
 // Mostrar las opciones de usuario al hacer clic en el botón
 iconoUsuario.addEventListener("click", () => {
   opcionesUsuario.classList.toggle("mostrar");
