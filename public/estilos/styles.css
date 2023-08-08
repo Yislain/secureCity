@@ -18,6 +18,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 40px;
 }
 
 .lista {
@@ -46,12 +47,12 @@ body {
     text-decoration: none;
     padding: 10px 15px;
     border-radius: 40px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.5s ease;
     font-size: 18px;
 }
 
 .barra-botones ul li a:hover {
-    background-color: #555;
+    background-color:#f57207;
 }
 /* Estilos para el logo en el slider */
 section .logo-gobierno img {
@@ -97,16 +98,22 @@ section .logo-gobierno img {
     font-size: 18px;
 }
 
+.opciones-usuario a:hover{
+    background-color: #f57207;
+    color: white;
+}
+
 /* Estilos del slider */
 .slider {
     position: relative;
     overflow: hidden;
     width: 100%;
+    margin-bottom: 0px;
 }
 
 .slider-container {
     display: flex;
-    transition: transform 1s;
+    transition: transform 3s;
 }
 
 .slider img {
@@ -207,18 +214,19 @@ section .logo-gobierno img {
 /* Nueva sección con el objetivo de la página y el resumen de uso */
 .informacion-section {
     padding: 40px;
+    margin-top: 70px; /* Agregar margen superior */
     text-align: center;
     background-color: #f7f7f7;
     display: flex;
     align-items: center;
+   
 }
-
 .informacion-section .texto-central {
     flex: 1;
 }
 
 .informacion-section h2 {
-    font-size: 24px;
+    font-size: 40px;
     margin-bottom: 10px;
     color: #00396e;
 }
@@ -446,14 +454,14 @@ section .logo-gobierno img {
 }
 
 .reportar-delito-section h2 {
-    font-size: 24px;
+    font-size: 40px;
     margin-bottom: 10px;
     color: #00396e;
 }
 
 .reportar-delito-section p {
     font-size: 18px;
-    color: #333;
+    color: #00396e;
     line-height: 1.6;
     margin-bottom: 20px;
 }
@@ -500,18 +508,8 @@ section .logo-gobierno img {
     background-color: #ffffff;
 }
 
-.reportar-delito-section h2 {
-    font-size: 32px;
-    margin-bottom: 7px;
-    color: #000000;
-}
 
-.reportar-delito-section p {
-    font-size: 18px;
-    color: #000000;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
+
 
 .reportar-delito-section .formulario {
     max-width: 500px;
@@ -604,3 +602,49 @@ section .logo-gobierno img {
     background-color: #005c9e;
 }
 
+/* Estilos para la sección de cómo prevenir un delito */
+.prevencion-section {
+    padding: 40px;
+    text-align: center;
+    background-color: #f7f7f7;
+}
+
+.prevencion-section p{
+    margin:10px;
+    font-size:18px;
+    align-items: center;
+    text-justify: auto;
+    justify-content: center;
+
+
+}
+
+.prevencion-section h2 {
+    font-size: 60px;
+    margin-bottom: 10px;
+    color: #00396e;
+    margin-bottom: 70px;
+}
+
+/* Estilos para la tabla de prevención */
+.tabla-prevencion {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 50px;
+}
+
+.tabla-prevencion th, .tabla-prevencion td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.tabla-prevencion th {
+    background-color: #00396e;
+    color: #fff;
+}
+
+.importancia-delitos{
+    margin-left: 100px;
+    margin-right:100px;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Control - SecureCity</title>
+  <link rel="stylesheet" href="/estilos/adminpanel.css">
+</head>
+
+<body>
+  <header class="header">
+    <nav>
+      <div class="logo">
+        <a href="/">SecureCity</a> <!-- Cambio en el enlace -->
+      </div>
+      <ul class="nav-links">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/reportadelito">Reportar Delito</a></li>
+        <li><a href="/prevencion">Prevención</a></li>
+        <li><a href="/nosotros">Nosotros</a></li>
+        <li><a href="/logout">Cerrar Sesión</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="admin-container">
+    <h2>Bienvenido al Panel de Control</h2>
+    <div class="admin-options">
+      <a href="/adminpanel/editarusuarios/<%= usuario.id %>">Editar Usuarios</a>
+      <a href="/admin/borrarproductos">Borrar Productos</a>
+      <a href="/admin/usuarios/editar">Editar Usuarios</a>
+      <a href="/admin/eliminarcuenta">Eliminar Cuenta de Usuario</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>SecureCity &copy; 2023. Todos los derechos reservados.</p>
+  </footer>
+</body>
+
+</html>

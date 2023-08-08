@@ -12,7 +12,9 @@
 <body>
     <header class="barra-botones">
         <div class="logo-container">
-            <img src="imagenes/logosinfondo.png" alt="Logo de SecureCitySjr">
+            <a href="/inicio">
+                <img src="imagenes/logosinfondo.png" alt="Logo de SecureCitySjr">
+              </a>
         </div>
         <div class="lista">
             <ul>
@@ -44,7 +46,7 @@
             </div>
             
             <form>
-                <label for="tipo-delito">Tipo de Delito</label>
+                <label for="tipo-delito">TIPO DE DELITO</label>
 <select id="tipo-delito" name="tipo-delito" required>
     <option value="" disabled selected>Selecciona un tipo de delito</option>
     <option value="extorsiones">Extorsiones</option>
@@ -53,10 +55,10 @@
     <option value="narcomenudeo">Narcomenudeo</option>
 </select>
 
-                <label for="descripcion-delito">Descripción del Delito</label>
+                <label for="descripcion-delito">DESCRIPCION DEL DELITO</label>
                 <textarea id="descripcion-delito" placeholder="Describe como ocurrio tu incidente" name="descripcion-delito" rows="4" required></textarea>
 
-                <label for="colonia">Colonia donde ocurrió el suceso</label>
+                <label for="colonia">COLONIA DONDE OCURRIO EL SUCESO</label>
             <select id="colonia" name="colonia" required>
                 <option value="" disabled selected>Selecciona una colonia</option>
                 <option value="Centro Histórico">Centro Histórico</option>
@@ -82,15 +84,26 @@
                 <option value="La Llave">La Llave</option>
             </select>
 
-                <label for="nombre">Tu Nombre</label>
+                <label for="nombre">TU NOMBRE</label>
                 <input type="text" id="nombre" name="nombre" required>
     
-                <label for="email">Tu Email</label>
+                <label for="email">TU EMAIL</label>
                 <input type="email" id="email" name="email" required>
     
                 <button type="submit">Enviar Reporte</button>
             </form>
         </div>
+
+        <section class="caracteristicas-section">
+            <div class="caracteristicas-container">
+              <div class="caracteristica">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Consejos de seguridad</h3>
+                <p>Recibe consejos prácticos y efectivos para protegerte a ti y a tus seres queridos, mejorando tu seguridad personal.</p>
+                <a href="/consejos">Más información</a>
+              </div>
+            </div>
+          </section>
     </section>
      <!-- Sección de preguntas frecuentes -->
      <section class="faq-section">

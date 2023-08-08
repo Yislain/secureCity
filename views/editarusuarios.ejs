@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Usuario - SecureCity</title>
+  <link rel="stylesheet" href="/estilos/editarusuario.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="/logo.png" alt="SecureCity Logo">
+        <h1>SecureCity</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/adminpanel">Panel de Administración</a></li>
+        <li><a href="/logout">Cerrar Sesión</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="edit-user-container">
+    <h2>Editar Usuario</h2>
+      <form method="POST" action="/editarusuarios/<%= usuario.id %>">
+
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" value="<%= usuario.nombre %>" required>
+
+      <label for="correo">Correo Electrónico:</label>
+      <input type="email" id="correo" name="correo" value="<%= usuario.correo %>" required>
+
+      <label for="contrasena">Contraseña:</label>
+      <input type="password" id="contrasena" name="contrasena" value="<%= usuario.contrasena %>" required>
+
+      <button type="submit">Guardar Cambios</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>SecureCity &copy; 2023. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+
+</html>

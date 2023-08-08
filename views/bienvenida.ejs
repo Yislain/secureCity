@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienvenido a SecureCitySJR</title>
+  <link rel="stylesheet" href="estilos/bienvenida.css"> <!-- Agrega la ruta correcta a tu archivo CSS -->
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <a href="/inicio">
+          <img src="/imagenes/logosinfondo.png" alt="Logo de SecureCitySjr">
+      </a>
+        <a href="/">
+          <h1>SecureCitySJR</h1>
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/">INICIO</a></li>
+        <li><a href="/prevencion">PREVENCIÓN</a></li>
+        <li><a href="/reportadelito">REPORTAR UN DELITO</a></li>
+        <li><a href="/nosotros">NOSOTROS</a></li>
+        <li><a href="/">CERRAR SESION</a></li>
+        
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>Bienvenido a SecureCitySJR</h2>
+    <% if(usuario) { %>
+      <p>¡Hola!</p>
+      <p>Has iniciado sesion correctamente en SecureCity.</p>
+      <p>Aquí encontrarás información sobre seguridad, prevención de delitos y mucho más.</p>
+      <p>¡Explora nuestro sitio y mantente seguro!</p>
+      <a href="/cuenta">Administrar cuenta</a>
+      <a href="/">Cerrar sesión</a>
+    <% } else { %>
+      <p>Ups, parece que no estás registrado o has cerrado sesión.</p>
+      <p>Inicia sesión o regístrate para acceder a nuestros servicios.</p>
+      <a href="/login">Iniciar Sesión</a>
+      <a href="/registro">Registrarse</a>
+    <% } %>
+  </main>
+
+  <footer>
+    <p>SecureCity &copy; 2023. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+
+</html>

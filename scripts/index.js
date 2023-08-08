@@ -1,9 +1,9 @@
 const express = require('express');
-const session = require('express-session'); 
+const session = require('express-session');
 const mysql = require('mysql2');
-const app = express();
 const path = require('path');
-require("dotenv").config();
+const adminRoutes = require('./adminRoutes'); // Importa las rutas de administrador
+const app = express();
 
 // Configuración del motor de plantillas EJS
 app.set('view engine', 'ejs');
@@ -13,18 +13,24 @@ app.set('views', path.join(__dirname, '..', 'views'));
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // Configuración de la sesión
-app.use(session({
-  secret: process.env.SESSION_SECRETO,
-  resave: true,
-  saveUninitialized: true
-}));
+app.use(
+  session({
+    secret: 'tu_secreto_aqui', // Cambia a tu propio secreto
+    resave: true,
+    saveUninitialized: true,
+  })
+);
 
-// Conexión a la base de datos MySQL
+// Conexión a la base de datos MySQL en PlanetScale sin verificar el certificado del servidor
 const connection = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE
+  host: 'aws.connect.psdb.cloud',
+  user: 'vbiz8g8854qottjm3gqy',
+  password: 'pscale_pw_afX6lQtaUDa7fEbndzIgyteD3z34hiNwRPylT7oWgtv',
+  database: 'securecity',
+  port: 3306,
+  ssl: {
+    rejectUnauthorized: false, // Establecer esta opción en false para evitar la verificación del certificado
+  },
 });
 
 connection.connect((err) => {
@@ -35,56 +41,63 @@ connection.connect((err) => {
   }
 });
 
-// Ruta para la página de inicio
+app.use(express.urlencoded({ extended: true }));
+
+// Rutas generales
 app.get('/', (req, res) => {
   res.render('index'); // Renderiza la página de inicio
 });
 
-// Ruta para la página de inicio
 app.get('/inicio', (req, res) => {
   res.render('index'); // Renderiza la página de inicio
 });
 
-// Ruta para la página de inicio de sesión
 app.get('/login', (req, res) => {
-  res.render('login');
+  res.render('login', { registroExitoso: false }); // Define el valor de registroExitoso
 });
 
-// Ruta para la página de reporte de delito
 app.get('/reportadelito', (req, res) => {
   res.render('reportadelito');
 });
 
-// Ruta para la página de prevención
 app.get('/prevencion', (req, res) => {
   res.render('prevencion');
 });
 
-// Ruta para la página "Nosotros"
 app.get('/nosotros', (req, res) => {
-  res.render('nosotros'); // Renderiza la página "nosotros"
+  res.render('nosotros');
 });
 
-// Ruta para la página de registro
 app.get('/registro', (req, res) => {
-  res.render('registro');
+  res.render('registro', { registroExitoso: false });
 });
 
-// Manejo del formulario de registro
+app.get('/cuenta', (req, res) => {
+  const userId = req.session.userId;
+  if (userId) {
+    // Consulta la base de datos para obtener los datos del usuario y pasarlos a la plantilla
+    const usuario = { nombre: 'Nombre del Usuario' };
+    res.render('cuenta', { usuario });
+  } else {
+    res.redirect('/login');
+  }
+});
+
 app.post('/registro', (req, res) => {
   const { nombre, correo, contrasena } = req.body;
-  const query = 'INSERT INTO USUARIOS (nombre, correo, contrasena) VALUES (nombre, correo, contrasena)';
+  const query = 'INSERT INTO USUARIOS (nombre, correo, contrasena) VALUES (?, ?, ?)';
   connection.query(query, [nombre, correo, contrasena], (err) => {
     if (err) {
       console.error('Error al registrar el usuario:', err);
       res.status(500).send('Error interno del servidor');
     } else {
-      res.redirect('/inicio'); // Redirige a la página de inicio o a donde desees
+      const usuario = { nombre };
+      req.session.userId = 123;
+      res.render('bienvenida', { usuario });
     }
   });
 });
 
-// Manejo del formulario de inicio de sesión
 app.post('/login', (req, res) => {
   const { correo, contrasena } = req.body;
   const query = 'SELECT id FROM USUARIOS WHERE correo = ? AND contrasena = ?';
@@ -95,11 +108,30 @@ app.post('/login', (req, res) => {
     } else if (results.length === 0) {
       res.status(401).send('Credenciales incorrectas');
     } else {
-      req.session.userId = results[0].id; // Guarda el ID del usuario en la sesión
-      res.redirect('/inicio'); // Redirige a la página de inicio o a donde desees
+      req.session.userId = results[0].id;
+      if (correo === 'admin' && contrasena === 'admin') {
+        req.session.isAdmin = true;
+        res.redirect('/adminpanel');
+      } else {
+        req.session.isAdmin = false;
+        res.redirect('/bienvenida');
+      }
     }
   });
 });
+
+app.get('/bienvenida', (req, res) => {
+  const userId = req.session.userId;
+  if (userId) {
+    const usuario = { nombre: 'Nombre del Usuario' };
+    res.render('bienvenida', { usuario });
+  } else {
+    res.redirect('/login');
+  }
+});
+
+// Usar las rutas de administrador
+app.use('/', adminRoutes);
 
 // Inicia el servidor en el puerto definido por 'port' variable
 const port = process.env.PORT || 3000;

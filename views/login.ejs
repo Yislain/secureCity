@@ -4,26 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SecureCitySjr - Inicio de Sesión</title>
-    <link rel="stylesheet" href="estilos/login.css">
+    <link rel="stylesheet" href="/estilos/login.css"> <!-- Corregido el enlace al archivo CSS -->
 </head>
 <body>
     <header class="encabezado">
         <div class="header-text">
-            <h1><a href="/">SecureCitySjr</a></h1>
+            <h1><a href="/">SecureCitySJR</a></h1>
         </div>
     </header>
     <section class="formulario-section">
         <div class="formulario">
             <h2>Iniciar Sesión</h2>
+            <% if (registroExitoso) { %>
+                <p class="registro-exitoso">¡Registro exitoso! Ahora puedes iniciar sesión.</p>
+            <% } %>
             <form action="/login" method="POST">
-                <input type="email" id="correo" name="correo" placeholder="Correo electrónico" required>
+                <input type="text" id="correo" name="correo" placeholder="Nombre de usuario o correo electrónico" required>
                 <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required>
                 <button type="submit">Iniciar Sesión</button>
             </form>
             <p>¿Aún no tienes una cuenta? <a href="/registro">Regístrate aquí</a></p>
         </div>
     </section>
-
+    
     <!-- Pie de página -->
     <footer class="pie-pagina">
         <p>Derechos de autor © 2023 SecureCitySjr. Todos los derechos reservados.</p>
