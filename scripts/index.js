@@ -31,7 +31,7 @@ const connection = mysql.createConnection({
   database: 'securecity',
   port: 3306,
   ssl: {
-    rejectUnauthorized: true, // Establecer esta opción en false para evitar la verificación del certificado
+    rejectUnauthorized: false, // Establecer esta opción en false para evitar la verificación del certificado
   },
 });
 
