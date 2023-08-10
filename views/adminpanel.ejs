@@ -7,7 +7,6 @@
   <title>Panel de Control - SecureCity</title>
   <link rel="stylesheet" href="/estilos/adminpanel.css">
 </head>
-
 <body>
   <header class="header">
     <nav>
@@ -27,9 +26,8 @@
   <main class="admin-container">
     <h2>Bienvenido al Panel de Control</h2>
     <div class="admin-options">
-      <a href="/adminpanel/editarusuarios/<%= usuario.id %>">Editar Usuarios</a>
       <a href="/admin/borrarproductos">Borrar Productos</a>
-      <a href="/admin/usuarios/editar">Editar Usuarios</a>
+      <a href="/adminpanel/editarusuarios/<%= usuario.id %>">Editar Usuarios</a> <!-- Corrección aquí -->
       <a href="/admin/eliminarcuenta">Eliminar Cuenta de Usuario</a>
     </div>
   </main>

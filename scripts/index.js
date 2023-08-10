@@ -24,8 +24,8 @@ app.use(
 // Conexión a la base de datos MySQL en PlanetScale sin verificar el certificado del servidor
 const connection = mysql.createConnection({
   host: 'aws.connect.psdb.cloud',
-  user: 'vbiz8g8854qottjm3gqy',
-  password: 'pscale_pw_afX6lQtaUDa7fEbndzIgyteD3z34hiNwRPylT7oWgtv',
+  user: '9c1p9ydfu0oi3xjlwc9g',
+  password: 'pscale_pw_Q6Zy9YO4PbSxeJ9cON8C9vl7FzFC8iA9j8MPEkK4pYx',
   database: 'securecity',
   port: 3306,
   ssl: {

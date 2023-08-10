@@ -9,7 +9,7 @@ body {
 /* Barra de botones */
 .barra-botones {
     background-color: #00396e;
-    padding: 40px;
+    padding: 18px;
     position: fixed;
     top: 0;
     left: 0;
@@ -563,10 +563,10 @@ section .logo-gobierno img {
     left: 140px; /* Ajusta la distancia desde el borde izquierdo */
     top: 50%;
     transform: translateY(-50%);
-}
+} /* ************************************************++++++++++++++++++++++++++++++++++++++++*/
 
 .logo-container img {
-    width: 100px; /* Ajusta el tamaño de la imagen según tus necesidades */
+    width: 60px; /* Ajusta el tamaño de la imagen según tus necesidades */
     height: auto;
 }
 
@@ -648,3 +648,25 @@ section .logo-gobierno img {
     margin-left: 100px;
     margin-right:100px;
 }
+
+/* Resto de los estilos... */
+
+/* Estilos para el logo en el slider */
+section .logo-gobierno img {
+    position: absolute;
+    top: 40px; /* Ajusta la distancia desde la parte superior */
+    left: 40px; /* Ajusta la distancia desde la izquierda */
+    z-index: 2; /* Asegura que el logo aparezca encima del slider */
+}
+
+
+
+/* Resto de los estilos... */
+
+/* Resto de los estilos... */
+
+
+/* Resto de los estilos... */
+
+
+

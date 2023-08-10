@@ -10,7 +10,7 @@ body {
 /* Barra de botones */
 .barra-botones {
     background-color: #00396e;
-    padding: 40px;
+    padding: 18px;
     position: fixed;
     top: 0;
     left: 0;
@@ -506,7 +506,7 @@ body {
 }
 
 .logo-container img {
-    width: 100px; /* Ajusta el tamaño de la imagen según tus necesidades */
+    width: 60px; /* Ajusta el tamaño de la imagen según tus necesidades */
     height: auto;
 }
 /* Estilos para el logo en la parte derecha */

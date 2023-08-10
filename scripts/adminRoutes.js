@@ -5,8 +5,8 @@ const router = express.Router();
 // Conexión a la base de datos MySQL en PlanetScale sin verificar el certificado del servidor
 const connection = mysql.createConnection({
   host: 'aws.connect.psdb.cloud',
-  user: 'vbiz8g8854qottjm3gqy',
-  password: 'pscale_pw_afX6lQtaUDa7fEbndzIgyteD3z34hiNwRPylT7oWgtv',
+  user: '9c1p9ydfu0oi3xjlwc9g',
+  password: 'pscale_pw_Q6Zy9YO4PbSxeJ9cON8C9vl7FzFC8iA9j8MPEkK4pYx',
   database: 'securecity',
   port: 3306,
   ssl: {
@@ -25,7 +25,7 @@ connection.connect((err) => {
 // Ruta para el panel de administración
 router.get('/adminpanel', (req, res) => {
   if (req.session.userId && req.session.isAdmin) {
-    const usuario = { id: 123 }; // Reemplaza con el ID real del usuario
+    const usuario = { id: 16 }; // Reemplaza con el ID real del usuario
     res.render('adminpanel', { usuario });
   } else {
     res.redirect('/bienvenida');
@@ -33,6 +33,7 @@ router.get('/adminpanel', (req, res) => {
 });
 
 router.get('/adminpanel/editarusuarios/:id', (req, res) => {
+  console.log("kajdsfh");
   const usuarioId = req.params.id;
   if (req.session.userId && req.session.isAdmin) {
     const query = 'SELECT * FROM USUARIOS WHERE id = ?';
@@ -41,7 +42,10 @@ router.get('/adminpanel/editarusuarios/:id', (req, res) => {
         console.error('Error al obtener usuario:', err);
         res.status(500).send('Error interno del servidor');
       } else {
-        res.render('editarUsuario', { usuario: results[0] });
+        console.log(results[0]);
+
+          res.render('editarUsuario', { usuario: results[0] });
+        
       }
     });
   } else {
