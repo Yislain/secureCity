@@ -26,12 +26,12 @@ app.use(
 // Conexión a la base de datos MySQL en PlanetScale sin verificar el certificado del servidor
 const connection = mysql.createConnection({
   host: 'aws.connect.psdb.cloud',
-  user: 'udmki4o99dvjgb3nful7',
-  password: 'pscale_pw_qYU23hqtYqy1o2xCBExVv8EC3rbizvz7LADsbXIipXQ',
+  user: 'r3y0jxtextxfaxv8gg6f',
+  password: 'pscale_pw_6lLovCiJtLPoU3jeS83zC2vLRg2cc0LdD0A03LqBytd',
   database: 'securecity',
   port: 3306,
   ssl: {
-    rejectUnauthorized: false, // Establecer esta opción en false para evitar la verificación del certificado
+    rejectUnauthorized: true, // Establecer esta opción en false para evitar la verificación del certificado
   },
 });
 
@@ -140,3 +140,4 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Servidor iniciado en http://localhost:${port}`);
 });
+

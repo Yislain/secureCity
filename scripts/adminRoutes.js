@@ -2,11 +2,13 @@ const express = require('express');
 const mysql = require('mysql2');
 const router = express.Router();
 
+
+
 // Conexión a la base de datos MySQL en PlanetScale sin verificar el certificado del servidor
 const connection = mysql.createConnection({
   host: 'aws.connect.psdb.cloud',
-  user: 'udmki4o99dvjgb3nful7',
-  password: 'pscale_pw_qYU23hqtYqy1o2xCBExVv8EC3rbizvz7LADsbXIipXQ',
+  user: 'r3y0jxtextxfaxv8gg6f',
+  password: 'pscale_pw_6lLovCiJtLPoU3jeS83zC2vLRg2cc0LdD0A03LqBytd',
   database: 'securecity',
   port: 3306,
   ssl: {
