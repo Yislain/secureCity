@@ -4,6 +4,8 @@ const mysql = require('mysql2');
 const path = require('path');
 const adminRoutes = require('./adminRoutes'); // Importa las rutas de administrador
 const app = express();
+const cuentaRouter = require('./cuenta');
+app.use('/cuenta', cuentaRouter);
 
 // Configuración del motor de plantillas EJS
 app.set('view engine', 'ejs');
@@ -21,13 +23,11 @@ app.use(
   })
 );
 
-
-
 // Conexión a la base de datos MySQL en PlanetScale sin verificar el certificado del servidor
 const connection = mysql.createConnection({
   host: 'aws.connect.psdb.cloud',
-  user: 'r3y0jxtextxfaxv8gg6f',
-  password: 'pscale_pw_6lLovCiJtLPoU3jeS83zC2vLRg2cc0LdD0A03LqBytd',
+  user: 'yplrvnqfr97i3v9vvgbc',
+  password: 'pscale_pw_ToGCOvzBy9itWonhR1q1Oi8wsHnkI6UK1WxKmuit9EL',
   database: 'securecity',
   port: 3306,
   ssl: {
@@ -47,11 +47,26 @@ app.use(express.urlencoded({ extended: true }));
 
 // Rutas generales
 app.get('/', (req, res) => {
-  res.render('index'); // Renderiza la página de inicio
+  res.render('index', { usuario: req.session.user }); // Renderiza la página de inicio y pasa el usuario autenticado
 });
 
 app.get('/inicio', (req, res) => {
   res.render('index'); // Renderiza la página de inicio
+});
+
+app.get('/index-session', (req, res) => {
+  res.render('index-session'); // Renderiza la página de inicio
+});
+app.get('/reportadelito-session', (req, res) => {
+  res.render('reportadelito-session'); // Renderiza la página de inicio
+});
+
+app.get('/nosotros-session', (req, res) => {
+  res.render('nosotros-session'); // Renderiza la página de inicio
+});
+
+app.get('/prevencion-session', (req, res) => {
+  res.render('prevencion-session'); // Renderiza la página de inicio
 });
 
 app.get('/login', (req, res) => {
@@ -132,11 +147,22 @@ app.get('/bienvenida', (req, res) => {
   }
 });
 
+
+// Implementa la ruta para cerrar sesión
+app.get('/logout', (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error('Error al cerrar sesión:', err);
+    }
+    res.redirect('/');
+  });
+});
+
 // Usar las rutas de administrador
 app.use('/', adminRoutes);
 
 // Inicia el servidor en el puerto definido por 'port' variable
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4200;
 app.listen(port, () => {
   console.log(`Servidor iniciado en http://localhost:${port}`);
 });

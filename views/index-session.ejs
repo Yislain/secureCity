@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureCitySjr - Prevención y Seguridad en San Juan del Río, Querétaro</title>
+    <link rel="stylesheet" href="/estilos/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="/estilos/scripts.js" defer></script>
+    <script src="/estilos/styles.css" defer></script>
+
+</head>
+<body>
+    <header class="barra-botones">
+        <div class="logo-container">
+            <a href="/index-session">
+                <img src="/imagenes/logosinfondo.png" alt="Logo de SecureCitySjr">
+            </a>
+        </div>
+        <div class="lista">
+            <ul>
+                <li><a href="/index-session">INICIO</a></li>
+                <li><a href="/prevencion-session">PREVENCIÓN</a></li>
+                <li><a href="/reportadelito-session">REPORTA UN DELITO</a></li>
+                <li><a href="/nosotros-session">NOSOTROS</a></li>
+            </ul>
+        </div>
+        
+        <div class="usuario">
+            <i class="fas fa-user icono-usuario"></i>
+            <div class="opciones-usuario">
+                <a href="/">Cerrar Sesion</a>
+            </div>
+            <div class="usuario-act">
+                <i class="fas fa-user icono-usuario activo"></i> <!-- Cambiado el ícono -->
+                <div class="opciones-usuario">
+                    <a href="/">Cerrar Sesion</a>
+                </div>
+            </div>
+            
+        </div>
+        
+        </div>
+    </header>
+    <section class="slider">
+        <div class="slider-container">
+            <img src="/imagenes/sanjuan.jpeg" alt="Imagen 1">
+        </div>
+        <div class="texto-imagen">
+            <h2>SecureCitySJR</h2>
+            <p>Descubre nuestra plataforma dedicada a mantenerte informado sobre los patrones de robos en tu zona. Nuestra misión es mejorar la seguridad en San Juan del Río, Querétaro, brindándote datos actualizados y consejos prácticos para protegerte a ti y a tus seres queridos.</p>
+            <a href="/nosotros" class="boton-scroll">Conoce más sobre nosotros</a>
+        </div>
+    </section>
+    <section class="informacion-section" id="mas-informacion">
+        <div class="texto-central">
+            <h2>SecureCitySJR - Prevención y Seguridad</h2>
+            <p>En SecureCitySJR, nos comprometemos a ofrecerte información relevante y actualizada sobre la seguridad en San Juan del Río, Querétaro. Nuestra plataforma está diseñada para mantener informada a la comunidad sobre los riesgos y peligros en su entorno, fomentando una cultura de prevención.</p>
+            <p>Encuentra datos sobre los delitos más frecuentes en la zona, valiosos consejos para protegerte. Contamos con un equipo multidisciplinario de expertos en seguridad, programadores y comunicadores que trabajan para mejorar la seguridad de nuestra comunidad.</p>
+            <p>Únete a nuestra plataforma y contribuye a la seguridad de tu comunidad reportando delitos que hayas presenciado o sido víctima. Juntos, podemos crear un entorno más seguro y protegido para todos.</p>
+        </div>
+    </section>
+    <section class="caracteristicas-section">
+        <h2>Características de SecureCitySjr</h2>
+        <div class="caracteristicas-container">
+           
+
+            <div class="caracteristica">
+                <i class="fas fa-map-marked-alt"></i>
+                <h3>Monitoreo</h3>
+                <p>Obtén información actualizada sobre los patrones de robos y delitos en tu área a tiempo para tomar decisiones informadas.</p>
+                <a href="#" class="mostrar-tabla" data-target="narcomenudeo-tabla">Más información</a>
+            </div>
+            <div class="caracteristica">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Consejos de seguridad</h3>
+                <p>Recibe consejos prácticos y efectivos para protegerte a ti y a tus seres queridos, mejorando tu seguridad personal.</p>
+                <a href="#" class="mostrar-tabla" data-target="narcomenudeo-tabla">Más información</a>
+            </div>
+            <div class="caracteristica">
+                <i class="fas fa-search-location"></i>
+                <h3>Reporte de delitos</h3>
+                <p>Reporta delitos que hayas presenciado o sido víctima para contribuir a la seguridad de tu comunidad.</p>
+                
+                <a href="#" class="mostrar-delito" data-target="delito">Más información</a>
+            </div>
+
+        </div>
+    </section>
+    <section class="contacto-section">
+        <h2>Contacto</h2>
+        <p>¿Tienes alguna pregunta o comentario? ¡Contáctanos! Estamos para ayudarte.</p>
+        <form class="formulario">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+            <button type="submit">Enviar mensaje</button>
+        </form>
+    </section>
+    <section class="contacto-section">
+        <h2>Contactanos</h2>
+        <p>Recuerda que nosotros en SecureCitySjr estamos para ayudarte.</p>
+        <button type="button" class="boton-contacto" onclick="mostrarOpcionesContacto()">Contactar</button>
+        <div class="opciones-contacto" style="display: none;">
+            <p><i class="fas fa-phone-alt"></i> Teléfono: 123-456-7890</p>
+            <p><i class="fas fa-envelope"></i> Email: contacto@securecity.com</p>
+        </div>
+    </section>
+    <section class="faq-section">
+        <h2>Preguntas frecuentes</h2>
+        <p>Encuentra respuestas a las preguntas más comunes sobre nuestra plataforma y servicios.</p>
+        <button type="button" class="boton-preguntas" onclick="mostrarPreguntasFrecuentes()">Ver preguntas frecuentes</button>
+        <div class="preguntas-frecuentes" style="display: none;">
+            <p>1. ¿Cómo puedo reportar un delito?</p>
+            <p>2. ¿Cómo puedo obtener información sobre los patrones de robos en mi zona?</p>
+            <p>3. ¿Qué hacer si fui víctima de un robo?</p>
+            <p>4. ¿Dónde puedo encontrar consejos de seguridad?</p>
+        </div>
+    </section>
+    <footer class="pie-pagina">
+        <p>Derechos de autor © 2023 SecureCitySjr. Todos los derechos reservados.</p>
+    </footer>
+    <script>
+               
+        const enlacesMostrarTabla = document.querySelectorAll('.mostrar-tabla');
+        enlacesMostrarTabla.forEach(enlace => {
+            enlace.addEventListener('click', function(event) {
+                event.preventDefault(); // Evita el comportamiento predeterminado del enlace
+                const target = enlace.getAttribute('data-target'); // Obtiene el identificador de destino
+                window.location.href = `/prevencion#${target}`; // Redirige a la página de "Prevención" con el identificador en la URL
+            });
+        });
+    </script>
+
+<script>
+               
+    const enlacesMostrarDelito = document.querySelectorAll('.mostrar-delito');
+    enlacesMostrarDelito.forEach(enlace => {
+        enlace.addEventListener('click', function(event) {
+            event.preventDefault(); // Evita el comportamiento predeterminado del enlace
+            const target = enlace.getAttribute('data-target'); // Obtiene el identificador de destino
+            window.location.href = `/reportadelito#${target}`; // Redirige a la página de "Prevención" con el identificador en la URL
+        });
+    });
+</script>
+</body>
+</html>

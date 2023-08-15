@@ -1,18 +1,15 @@
 const express = require('express');
-const mysql = require('mysql2');
 const router = express.Router();
+const mysql = require('mysql2');
 
-
-
-// Conexión a la base de datos MySQL en PlanetScale sin verificar el certificado del servidor
 const connection = mysql.createConnection({
   host: 'aws.connect.psdb.cloud',
-  user: 'r3y0jxtextxfaxv8gg6f',
-  password: 'pscale_pw_6lLovCiJtLPoU3jeS83zC2vLRg2cc0LdD0A03LqBytd',
+  user: 'yplrvnqfr97i3v9vvgbc',
+  password: 'pscale_pw_ToGCOvzBy9itWonhR1q1Oi8wsHnkI6UK1WxKmuit9EL',
   database: 'securecity',
   port: 3306,
   ssl: {
-    rejectUnauthorized: false, // Establecer esta opción en false para evitar la verificación del certificado
+    rejectUnauthorized: false,
   },
 });
 
@@ -20,34 +17,19 @@ connection.connect((err) => {
   if (err) {
     console.error('Error al conectar a la base de datos:', err);
   } else {
-    console.log('');
+    console.log('Conexión exitosa a la base de datos');
   }
 });
 
-// Ruta para el panel de administración
 router.get('/adminpanel', (req, res) => {
   if (req.session.userId && req.session.isAdmin) {
-    const usuario = { id: 16 }; // Reemplaza con el ID real del usuario
-    res.render('adminpanel', { usuario });
-  } else {
-    res.redirect('/bienvenida');
-  }
-});
-
-router.get('/adminpanel/editarusuarios/:id', (req, res) => {
-  console.log("kajdsfh");
-  const usuarioId = req.params.id;
-  if (req.session.userId && req.session.isAdmin) {
-    const query = 'SELECT * FROM USUARIOS WHERE id = ?';
-    connection.query(query, [usuarioId], (err, results) => {
+    const query = 'SELECT * FROM USUARIOS';
+    connection.query(query, (err, usuarios) => {
       if (err) {
-        console.error('Error al obtener usuario:', err);
+        console.error('Error al obtener usuarios:', err);
         res.status(500).send('Error interno del servidor');
       } else {
-        console.log(results[0]);
-
-          res.render('editarUsuario', { usuario: results[0] });
-        
+        res.render('adminpanel', { usuarios });
       }
     });
   } else {
@@ -55,24 +37,100 @@ router.get('/adminpanel/editarusuarios/:id', (req, res) => {
   }
 });
 
-router.post('/adminpanel/editarusuarios/:id', (req, res) => {
-  const usuarioId = req.params.id;
+router.get('/adminpanel/editarusuario/:id', (req, res) => {
+  const userId = req.params.id;
+
+  if (!userId || isNaN(userId)) {
+    return res.status(400).send('ID de usuario inválido');
+  }
+
+  const query = 'SELECT * FROM USUARIOS WHERE id = ?';
+  connection.query(query, [userId], (err, results) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send('Error interno del servidor');
+    }
+
+    if (results.length === 0) {
+      return res.status(404).send('Usuario no encontrado');
+    }
+
+    res.render('editarUsuario', { usuario: results[0] });
+  });
+});
+
+router.post('/adminpanel/editarusuario/:id', (req, res) => {
+  const userId = req.params.id;
+
+  if (!userId || isNaN(userId)) {
+    return res.status(400).send('ID de usuario inválido');
+  }
+
   const { nombre, correo, contrasena } = req.body;
-  if (req.session.userId && req.session.isAdmin) {
-    const query = 'UPDATE USUARIOS SET nombre = ?, correo = ?, contrasena = ? WHERE id = ?';
-    connection.query(query, [nombre, correo, contrasena, usuarioId], (err) => {
-      if (err) {
-        console.error('Error al actualizar usuario:', err);
-        res.status(500).send('Error interno del servidor');
-      } else {
-        res.redirect('/adminpanel'); // Redirige al panel de administración después de la edición
-      }
-    });
-  } else {
-    res.redirect('/bienvenida');
+
+  if (!nombre || !correo || !contrasena) {
+    return res.status(400).send('Faltan campos obligatorios');
   }
+
+  if (!req.session.userId || !req.session.isAdmin) {
+    return res.status(401).send('No autorizado');
+  }
+
+  // Sanear inputs y realizar la actualización en la base de datos
+  const query = 'UPDATE USUARIOS SET nombre = ?, correo = ?, contrasena = ? WHERE id = ?';
+
+  connection.query(query, [nombre, correo, contrasena, userId], (err) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send('Error interno del servidor');
+    }
+    res.redirect('/adminpanel');
+  });
 });
 
-// Otras rutas de administrador aquí
+router.get('/adminpanel/eliminarusuario/:id', (req, res) => {
+  const userId = req.params.id;
+
+  if (!userId || isNaN(userId)) {
+    return res.status(400).send('ID de usuario inválido');
+  }
+
+  if (!req.session.userId || !req.session.isAdmin) {
+    return res.status(401).send('No autorizado');
+  }
+
+  const query = 'DELETE FROM USUARIOS WHERE id = ?';
+  connection.query(query, [userId], (err) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send('Error interno del servidor');
+    }
+    res.redirect('/adminpanel');
+  });
+});
+
+router.post('/adminpanel/insertarusuario', (req, res) => {
+  const { nombre, correo, contrasena } = req.body;
+
+  if (!nombre || !correo || !contrasena) {
+    return res.status(400).send('Faltan campos obligatorios');
+  }
+
+  if (!req.session.userId || !req.session.isAdmin) {
+    return res.status(401).send('No autorizado');
+  }
+
+  // Sanear inputs y realizar la inserción en la base de datos
+  const query = 'INSERT INTO USUARIOS (nombre, correo, contrasena) VALUES (?, ?, ?)';
+
+  connection.query(query, [nombre, correo, contrasena], (err) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send('Error interno del servidor');
+    }
+
+    res.redirect('/adminpanel');
+  });
+});
 
 module.exports = router;

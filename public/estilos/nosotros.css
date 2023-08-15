@@ -517,3 +517,26 @@ body {
     transform: translateY(-50%);
 }
 
+/* Estilos para el icono de usuario con sesión activa */
+.icono-usuario.activo {
+    position: relative;
+    font-size: 35px;
+    cursor: pointer;
+    
+    
+}
+
+/* Estilos para el círculo verde */
+.icono-usuario.activo::before {
+    content: "";
+    position: absolute;
+    left: -18px; /* Ajusta la distancia del círculo a la izquierda */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background-color: #4CAF50; /* Color verde */
+    border-radius: 50%;
+    margin-right: 90px;
+    
+}

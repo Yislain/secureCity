@@ -7,34 +7,112 @@
   <title>Panel de Control - SecureCity</title>
   <link rel="stylesheet" href="/estilos/adminpanel.css">
 </head>
+
 <body>
+
   <header class="header">
-    <nav>
-      <div class="logo">
-        <a href="/">SecureCity</a> <!-- Cambio en el enlace -->
-      </div>
-      <ul class="nav-links">
-        <li><a href="/">Inicio</a></li>
-        <li><a href="/reportadelito">Reportar Delito</a></li>
-        <li><a href="/prevencion">Prevención</a></li>
-        <li><a href="/nosotros">Nosotros</a></li>
-        <li><a href="/logout">Cerrar Sesión</a></li>
-      </ul>
-    </nav>
+    <!-- Encabezado y navegación -->
+    <div class="opciones-usuario">
+      <a href="/">Cerrar Sesion</a>
+    </div>
+    <div class="logo">
+      <a href="/index-session">
+        <h1>SecureCitySJR</h1>
+      </a>
+    </div>
   </header>
 
   <main class="admin-container">
-    <h2>Bienvenido al Panel de Control</h2>
+
+    <h2 class="admin-title">Centro de Control</h2>
+
     <div class="admin-options">
-      <a href="/admin/borrarproductos">Borrar Productos</a>
-      <a href="/adminpanel/editarusuarios/<%= usuario.id %>">Editar Usuarios</a> <!-- Corrección aquí -->
-      <a href="/admin/eliminarcuenta">Eliminar Cuenta de Usuario</a>
+      <a href="#" class="admin-option option-insert" id="insertarUsuario">Inserción de Nuevo Usuario</a>
     </div>
+
+    <div class="lista-usuarios">
+      <ul>
+
+        <% if (usuarios && usuarios.length > 0) { %>
+
+          <% usuarios.forEach((usuario) => { %>
+
+            <li>
+              <span><%= usuario.nombre %></span>
+              <div class="usuario-options">
+                <a class="btn-editar" href="/adminpanel/editarusuario/<%= usuario.id %>" data-id="<%= usuario.id %>">Editar</a>
+                <a class="btn-eliminar" href="/adminpanel/eliminarusuario/<%= usuario.id %>" data-id="<%= usuario.id %>">Eliminar</a>
+              </div>
+            </li>
+
+          <% }); %>
+
+        <% } else { %>
+
+          <p>No hay usuarios disponibles.</p>
+
+        <% } %>
+
+      </ul>
+    </div>
+
   </main>
 
   <footer class="footer">
-    <p>SecureCity &copy; 2023. Todos los derechos reservados.</p>
+    <!-- Pie de página -->
   </footer>
+
+  <div id="modal" class="modal">
+
+    <div class="modal-content">
+      <span class="modal-close" id="cerrarModal">&times;</span>
+      <h2>Insertar Nuevo Usuario</h2>
+      <form id="formularioInsertarUsuario" action="/adminpanel/insertarusuario" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        
+        <label for="correo">Correo:</label>
+        <input type="email" id="correo" name="correo" required>
+        
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" id="contrasena" name="contrasena" required>
+        
+        <button type="submit">Insertar Usuario</button>
+      </form>
+    </div>
+
+  </div>
+
+  <div id="" class="modal">
+
+    <div class="modal-content">
+      <span class="modal-close" id="cerrarEditarModal">&times;</span>
+      <h2>Editar Usuario</h2>
+
+      <form id="formularioEditarUsuario" action="/adminpanel/editarusuario/:id" method="post">
+        <input type="hidden" id="editarId" name="id" value="">
+        
+        <label for="editarNombre">Nombre:</label>
+        <input type="text" id="editarNombre" name="nombre" required>
+        
+        <label for="editarCorreo">Correo:</label>
+        <input type="email" id="editarCorreo" name="correo" required>
+        
+        <label for="editarContrasena">Contraseña:</label>
+        <input type="password" id="editarContrasena" name="contrasena" required>
+        
+        <button type="submit">Guardar Cambios</button>
+      </form>
+
+    </div>
+
+  </div>
+
+
+
+  <script src="/scripts/adminScripts.js"></script>
+  <script src="/scripts/adminRoutes.js"></script>
+
 </body>
 
 </html>

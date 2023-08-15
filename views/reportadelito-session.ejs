@@ -12,23 +12,29 @@
 <body>
     <header class="barra-botones">
         <div class="logo-container">
-            <a href="/inicio">
+            <a href="/index-session">
                 <img src="imagenes/logosinfondo.png" alt="Logo de SecureCitySjr">
               </a>
         </div>
         <div class="lista">
             <ul>
-                <li><a href="/inicio">INICIO</a></li>
-                <li><a href="/prevencion">PREVENCIÓN</a></li>
-                <li><a href="/reportadelito">REPORTA UN DELITO</a></li>
-                <li><a href="/nosotros">NOSOTROS</a></li>
+                <li><a href="/index-session">INICIO</a></li>
+                <li><a href="/prevencion-session">PREVENCIÓN</a></li>
+                <li><a href="/reportadelito-session">REPORTA UN DELITO</a></li>
+                <li><a href="/nosotros-session">NOSOTROS</a></li>
             </ul>
         </div>
         <div class="usuario">
             <i class="fas fa-user icono-usuario"></i>
             <div class="opciones-usuario">
-                <a href="/registro">Regístrate</a>
-                <a href="/login">Iniciar Sesión</a>
+                <a href="/">Cerrar Sesion</a>
+               
+            </div>
+        </div>
+        <div class="usuario-act">
+            <i class="fas fa-user icono-usuario activo"></i> <!-- Cambiado el ícono -->
+            <div class="opciones-usuario">
+                <a href="/">Cerrar Sesion</a>
             </div>
         </div>
     </header>
@@ -55,6 +61,7 @@
     <option value="robo-violento-casa">Robo a casa Habitacion con Violencia</option>
     <option value="robo-violento-vehiculo">Robo de Vehículo con Violencia</option>
     <option value="robo-violento-vehiculo">Robo de Vehículo sin Violencia</option>
+
 </select>
 
                 <label for="descripcion-delito">DESCRIPCION DEL DELITO</label>

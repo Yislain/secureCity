@@ -19,6 +19,7 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 40px;
+    margin-right: 0px;
 }
 
 .lista {
@@ -52,8 +53,9 @@ body {
 }
 
 .barra-botones ul li a:hover {
-    background-color:#f57207;
+    background-color: #f57207;
 }
+
 /* Estilos para el logo en el slider */
 section .logo-gobierno img {
     position: absolute;
@@ -98,7 +100,7 @@ section .logo-gobierno img {
     font-size: 18px;
 }
 
-.opciones-usuario a:hover{
+.opciones-usuario a:hover {
     background-color: #f57207;
     color: white;
 }
@@ -182,7 +184,7 @@ section .logo-gobierno img {
 /* Estilos para el contenedor del texto que aparece arriba de la imagen */
 .texto-imagen {
     position: absolute;
-    top: 40%; /* Subimos un poco más el texto */
+    top: 41%; /* Ajustamos un centímetro hacia abajo */
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -213,8 +215,8 @@ section .logo-gobierno img {
 
 /* Nueva sección con el objetivo de la página y el resumen de uso */
 .informacion-section {
-    padding: 40px;
-    margin-top: 70px; /* Agregar margen superior */
+    padding: 0px;
+    margin-top: 60px; /* Agregar margen superior */
     text-align: center;
     background-color: #f7f7f7;
     display: flex;
@@ -508,9 +510,6 @@ section .logo-gobierno img {
     background-color: #ffffff;
 }
 
-
-
-
 .reportar-delito-section .formulario {
     max-width: 500px;
     margin: 0 auto;
@@ -560,10 +559,10 @@ section .logo-gobierno img {
 
 .logo-container {
     position: absolute;
-    left: 140px; /* Ajusta la distancia desde el borde izquierdo */
+    left: 80px; /* Ajusta la distancia desde el borde izquierdo */
     top: 50%;
     transform: translateY(-50%);
-} /* ************************************************++++++++++++++++++++++++++++++++++++++++*/
+}
 
 .logo-container img {
     width: 60px; /* Ajusta el tamaño de la imagen según tus necesidades */
@@ -609,14 +608,12 @@ section .logo-gobierno img {
     background-color: #f7f7f7;
 }
 
-.prevencion-section p{
-    margin:10px;
-    font-size:18px;
+.prevencion-section p {
+    margin: 10px;
+    font-size: 18px;
     align-items: center;
     text-justify: auto;
     justify-content: center;
-
-
 }
 
 .prevencion-section h2 {
@@ -644,9 +641,9 @@ section .logo-gobierno img {
     color: #fff;
 }
 
-.importancia-delitos{
+.importancia-delitos {
     margin-left: 100px;
-    margin-right:100px;
+    margin-right: 100px;
 }
 
 /* Resto de los estilos... */
@@ -659,14 +656,118 @@ section .logo-gobierno img {
     z-index: 2; /* Asegura que el logo aparezca encima del slider */
 }
 
+/* Asegura que el icono de usuario no se vea tapado */
+.opciones-usuario {
+    z-index: 3;
+}
 
+.busqueda-barra {
+    margin-right: 30px; /* Espaciado entre la barra de búsqueda y la lista de enlaces */
+}
+/* Estilos para el contenedor del icono y el texto */
+.usuario {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centramos horizontalmente */
+}
 
-/* Resto de los estilos... */
+/* Estilos para el icono de usuario con sesión activa */
+.icono-usuario.activo {
+    position: relative;
+    font-size: 35px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
 
-/* Resto de los estilos... */
+/* Estilos para el texto "Iniciar Sesión" */
+.iniciar-sesion-texto {
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+}
 
+ 
+/* Estilos para el icono de usuario con sesión activa */
+.icono-usuario.activo {
+    position: relative;
+    font-size: 35px;
+    cursor: pointer;
+}
 
-/* Resto de los estilos... */
+/* Estilos para el círculo verde */
+.icono-usuario.activo::before {
+    content: "";
+    position: absolute;
+    left: -18px; /* Ajusta la distancia del círculo a la izquierda */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background-color: #4CAF50; /* Color verde */
+    border-radius: 50%;
+}
 
+/* Estilos para la sección Foco Rojo */
+.foco-rojo-section {
+    padding: 40px;
+    text-align: center;
+    background-color: #f7f7f7;
+}
+ 
+.foco-rojo-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #00396e;
+}
 
+.formulario-foco-rojo {
+    max-width: 400px;
+    margin: 0 auto;
+}
 
+.formulario-foco-rojo label,
+.formulario-foco-rojo select {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.formulario-foco-rojo button {
+    width: 100%;
+    padding: 12px;
+    background-color: #00396e;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.formulario-foco-rojo button:hover {
+    background-color: #005c9e;
+}
+
+#resultado-indice {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
+/* Estilos para el resultado del índice de peligro */
+.resultado-indice {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px solid #333;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#indice {
+    font-size: 40px;
+    font-weight: bold;
+    color: #e74c3c; /* Color rojo */
+}

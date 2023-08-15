@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Usuarios - SecureCity</title>
+  <link rel="stylesheet" href="/estilos/editarUsuario.css">
+</head>
+
+
+<body>
+  <header class="header">
+    <nav>
+      <div class="logo">
+        <a href="/">SecureCity</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/reportadelito">Reportar Delito</a></li>
+        <li><a href="/prevencion">Prevención</a></li>
+        <li><a href="/nosotros">Nosotros</a></li>
+        <li><a href="/logout">Cerrar Sesión</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="editar-container">
+    <h2>Editar Usuarios</h2>
+    <div class="buscar-form">
+      <form action="/adminpanel/editarusuarios" method="GET"> <!-- Agregado el formulario para buscar -->
+        <label for="usuario">Buscar Usuario:</label>
+        <input type="text" id="usuario" name="usuario" placeholder="Nombre de Usuario">
+        <button id="buscar">Buscar</button>
+      </form>
+    </div>
+    <div class="lista-usuarios">
+      <ul>
+        <% if (usuarios && usuarios.length > 0) {
+          usuarios.forEach((usuario) => { %>
+            <li>
+              <span><%= usuario.nombre %></span>
+              <a href="/adminpanel/editarusuarios/<%= usuario.id %>">Editar</a>
+            </li>
+          <% });
+        } else { %>
+          <li>No hay usuarios disponibles.</li>
+        <% } %>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>SecureCity &copy; 2023. Todos los derechos reservados.</p>
+  </footer>
+</body>
+
+</html>

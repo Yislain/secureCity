@@ -1,49 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Editar Usuario - SecureCity</title>
-  <link rel="stylesheet" href="/estilos/editarusuario.css">
+  <link rel="stylesheet" href="/estilos/adminpanel.css">
 </head>
-
 <body>
-  <header>
-    <nav>
-      <div class="logo">
-        <img src="/logo.png" alt="SecureCity Logo">
-        <h1>SecureCity</h1>
-      </div>
-      <ul class="nav-links">
-        <li><a href="/">Inicio</a></li>
-        <li><a href="/adminpanel">Panel de Administración</a></li>
-        <li><a href="/logout">Cerrar Sesión</a></li>
-      </ul>
-    </nav>
+  <header class="header">
+    <!-- Encabezado y navegación -->
+    <div class="opciones-usuario">
+      <a href="/">Cerrar Sesión</a>
+    </div>
   </header>
 
-  <main class="edit-user-container">
-    <h2>Editar Usuario</h2>
-      <form method="POST" action="/editarusuarios/%= usuario.id %>">
-
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" value="<%= usuario.nombre %>" required>
-
-      <label for="correo">Correo Electrónico:</label>
-      <input type="email" id="correo" name="correo" value="<%= usuario.correo %>" required>
-
-      <label for="contrasena">Contraseña:</label>
-      <input type="password" id="contrasena" name="contrasena" value="<%= usuario.contrasena %>" required>
-
-      <button type="submit">Guardar Cambios</button>
-    </form>
+  <main class="admin-container">
+    <h2 class="admin-title">Editar Usuario</h2>
+    <div class="editar-usuario">
+      <form id="formularioEditarUsuario" action="/adminpanel/editarusuario/<%= usuario.id %>" method="post">
+        <label for="editarNombre">Nombre:</label>
+        <input type="text" id="editarNombre" name="nombre" value="<%= usuario.nombre %>" required>
+        <label for="editarCorreo">Correo:</label>
+        <input type="email" id="editarCorreo" name="correo" value="<%= usuario.correo %>" required>
+        <label for="editarContrasena">Contraseña:</label>
+        <input type="password" id="editarContrasena" name="contrasena" required>
+        <button type="submit">Guardar Cambios</button>
+      </form>
+    </div>
   </main>
 
-  <footer>
-    <p>SecureCity &copy; 2023. Todos los derechos reservados.</p>
+  <footer class="footer">
+    <!-- Pie de página -->
   </footer>
 
+  <script src="/scripts/adminScripts.js"></script>
+  <script src="/scripts/adminRoutes.js"></script>
 </body>
-
 </html>

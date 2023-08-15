@@ -24,14 +24,22 @@
                 <li><a href="/nosotros">NOSOTROS</a></li>
             </ul>
         </div>
+        <div class="busqueda-barra">
+            <form action="/buscar" method="GET" class="form-inline">
+                <input type="text" name="q" class="form-control mr-sm-2" placeholder="Buscar...">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </form>
+        </div>
         <div class="usuario">
             <i class="fas fa-user icono-usuario"></i>
             <div class="opciones-usuario">
                 <a href="/registro">Regístrate</a>
                 <a href="/login">Iniciar Sesión</a>
             </div>
+            <div class="iniciar-sesion-texto">Iniciar Sesión</div>
         </div>
     </header>
+    
     <section class="slider">
         <div class="slider-container">
             <img src="/imagenes/sanjuan.jpeg" alt="Imagen 1">
@@ -40,6 +48,333 @@
             <h2>SecureCitySJR</h2>
             <p>Descubre nuestra plataforma dedicada a mantenerte informado sobre los patrones de robos en tu zona. Nuestra misión es mejorar la seguridad en San Juan del Río, Querétaro, brindándote datos actualizados y consejos prácticos para protegerte a ti y a tus seres queridos.</p>
             <a href="/nosotros" class="boton-scroll">Conoce más sobre nosotros</a>
+        </div>
+    </section>
+    <section class="foco-rojo-section">
+        <i class="fas fa-exclamation-triangle"></i>
+        <h2>Foco Rojo</h2>
+        <form class="formulario-foco-rojo">
+            <label for="colonias">Selecciona una colonia:</label>
+            <select id="colonias" name="colonias">
+                <option value="floresta">Floresta</option>
+                <option value="bellavista">Bellavista</option>
+<option value="lomasdesanjuan">Lomas de san juan</option>
+<option value="centro">Centro</option>
+<option value="lallave">La llave</option>
+<option value="pedregoso">pedregoso</option>
+<option value="indeco">indeco</option>
+<option value="lapeña">la peña</option>
+<option value="sanisidro">San Isidro</option>
+<option value="vistahermosa">vista hermosa</option>
+<option value="villasdelroble">Villas del Roble</option>
+<option value="rinconadajardines">Rincónada Jardines</option>
+<option value="lasjuntas">Las Juntas</option>
+<option value="colinasdelcimatario">Colinas del Cimatario</option>
+<option value="vallealamos">Valle Álamos</option>
+<option value="vallealpino">Valle Alpino</option>
+<option value="coloniaimperial">Colonia Imperial</option>
+<option value="santaclara">Santa Clara</option>
+<option value="valledeoro">Valle de Oro</option>
+<option value="fraccionamientohadas">Fraccionamiento Hadas</option>
+<option value="residencialdelvalle">Residencial del Valle</option>
+<option value="elcarmen">El Carmen</option>
+<option value="paseosdelsol">Paseos del Sol</option>
+<option value="fraccionamientoprimavera">Fraccionamiento Primavera</option>
+<option value="sanpedrito">San Pedrito</option>
+<option value="pedregal">Pedregal</option>
+<option value="lomasdesanjuan">Lomas de San Juan</option>
+<option value="huertaselsaucito">Huertas El Saucito</option>
+<option value="ampliacionbellavista">Ampliación Bellavista</option>
+<option value="paseosdelacolina">Paseos de la Colina</option>
+<option value="haciendadelsol">Hacienda del Sol</option>
+<option value="elrodeo">El Rodeo</option>
+</select>
+
+            
+            </select>
+
+            <label for="delitos">Selecciona un delito:</label>
+            <select id="delitos" name="delitos">
+            <!-- Delitos con Violencia -->
+<option value="robo-transeunte-violencia">Robo a Transeúnte con Violencia</option>
+<option value="robo-casa-habitacion-violencia">Robo a Casa Habitación con Violencia</option>
+<option value="robo-vehiculo-violencia">Robo de Vehículo con Violencia</option>
+
+<!-- Delitos sin Violencia -->
+<option value="robo-transeunte-sin-violencia">Robo a Transeúnte sin Violencia</option>
+<option value="robo-casa-habitacion-sin-violencia">Robo a Casa Habitación sin Violencia</option>
+<option value="robo-vehiculo-sin-violencia">Robo de Vehículo sin Violencia</option>
+
+
+                <!-- Agrega más opciones de delitos aquí -->
+            </select>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    const indiceResult = document.getElementById("indice");
+                    const resultadoIndice = document.querySelector(".resultado-indice");
+        
+                    const datosIndice = {
+    lomasdesanjuan: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    centro: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    lallave: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    pedregoso: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    indeco: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    lapeña: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    sanisidro: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    vistahermosa: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    villasdelroble: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    rinconadajardines: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    lasjuntas: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    colinasdelcimatario: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math .random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    vallealamos: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    vallealpino: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    coloniaimperial: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    santaclara: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    valledeoro: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    fraccionamientohadas: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    residencialdelvalle: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    elcarmen: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    paseosdelsol: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    fraccionamientoprimavera: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    sanpedrito: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    pedregal: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    huertaselsaucito: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    ampliacionbellavista: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    paseosdelacolina: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    haciendadelsol: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    elrodeo: {
+        "robo-transeunte-violencia": Math.floor(Math.random() * 30),
+        "robo-transeunte-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-violencia": Math.floor(Math.random() * 30),
+        "robo-vehiculo-sin-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-violencia": Math.floor(Math.random() * 30),
+        "robo-casa-habitacion-sin-violencia": Math.floor(Math.random() * 30),
+    },
+    // Agrega más colonias con sus 6 delitos aquí...
+
+
+          // ... Agrega más colonias con sus datos correspondientes
+                  };
+        
+                    const calcularIndiceButton = document.getElementById("calcular-indice");
+                    calcularIndiceButton.addEventListener("click", function() {
+                        const colonia = document.getElementById("colonias").value;
+                        const delito = document.getElementById("delitos").value;
+        
+                        if (datosIndice[colonia] && datosIndice[colonia][delito]) {
+                            const indice = (datosIndice[colonia][delito] / 140) * 100;
+                            indiceResult.textContent = indice.toFixed(2) + "%";
+                            resultadoIndice.style.display = "block";
+                        } else {
+                            indiceResult.textContent = "No Hay Incidentes";
+                            resultadoIndice.style.display = "block";
+                        }
+                    });
+                });
+            </script>
+
+            <button type="button" id="calcular-indice">Calcular Índice</button>
+        </form>
+
+        <div class="resultado-indice" style="display: none;">
+            <h3>Índice de Peligro</h3>
+            <p id="indice">--</p>
         </div>
     </section>
     <section class="informacion-section" id="mas-informacion">

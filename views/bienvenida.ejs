@@ -14,18 +14,23 @@
       <div class="logo">
         <a href="/inicio">
           <img src="/imagenes/logosinfondo.png" alt="Logo de SecureCitySjr">
-      </a>
+        </a>
         <a href="/">
           <h1>SecureCitySJR</h1>
         </a>
       </div>
       <ul class="nav-links">
-        <li><a href="/">INICIO</a></li>
-        <li><a href="/prevencion">PREVENCIÓN</a></li>
-        <li><a href="/reportadelito">REPORTAR UN DELITO</a></li>
-        <li><a href="/nosotros">NOSOTROS</a></li>
-        <li><a href="/">CERRAR SESION</a></li>
-        
+        <li><a href="/index-session">INICIO</a></li>
+        <li><a href="/prevencion-session">PREVENCIÓN</a></li>
+        <li><a href="/reportadelito-session">REPORTAR UN DELITO</a></li>
+        <li><a href="/nosotros-session">NOSOTROS</a></li>
+        <li>
+          
+          <ul class="dropdown">
+            <li><a href="/cuenta">Administrar cuenta</a></li>
+            <li><a href="/">Cerrar sesión</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
   </header>
@@ -37,8 +42,6 @@
       <p>Has iniciado sesion correctamente en SecureCity.</p>
       <p>Aquí encontrarás información sobre seguridad, prevención de delitos y mucho más.</p>
       <p>¡Explora nuestro sitio y mantente seguro!</p>
-      <a href="/cuenta">Administrar cuenta</a>
-      <a href="/">Cerrar sesión</a>
     <% } else { %>
       <p>Ups, parece que no estás registrado o has cerrado sesión.</p>
       <p>Inicia sesión o regístrate para acceder a nuestros servicios.</p>
