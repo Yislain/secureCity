@@ -3,14 +3,11 @@ const router = express.Router();
 const mysql = require('mysql2');
 
 const connection = mysql.createConnection({
-  host: 'aws.connect.psdb.cloud',
-  user: 'yplrvnqfr97i3v9vvgbc',
-  password: 'pscale_pw_ToGCOvzBy9itWonhR1q1Oi8wsHnkI6UK1WxKmuit9EL',
-  database: 'securecity',
+  host: '127.0.0.1',
+  user: 'root',
+  password: '', // Deja la contraseña en blanco
+  database: 'SECURECITY2', // Reemplaza 'securecity' con el nombre de tu base de datos local
   port: 3306,
-  ssl: {
-    rejectUnauthorized: false,
-  },
 });
 
 connection.connect((err) => {
