@@ -2,13 +2,13 @@ const express = require('express');
 const router = express.Router();
 const mysql = require('mysql2');
 
-const connection = mysql.createConnection({
+/* const connection = mysql.createConnection({
   host: '127.0.0.1',
   user: 'root',
-  password: '', // Deja la contraseña en blanco
-  database: 'SECURECITY2', // Reemplaza 'securecity' con el nombre de tu base de datos local
+  password: '', 
+  database: 'SECURECITY2', 
   port: 3306,
-});
+}); 
 
 connection.connect((err) => {
   if (err) {
@@ -16,7 +16,7 @@ connection.connect((err) => {
   } else {
     console.log('Conexión exitosa a la base de datos');
   }
-});
+}); */
 
 router.get('/adminpanel', (req, res) => {
   if (req.session.userId && req.session.isAdmin) {

@@ -24,22 +24,22 @@ app.use(
 );
 
 // Conexión a la base de datos MySQL en PlanetScale sin verificar el certificado del servidor
-const connection = mysql.createConnection({
+/* const connection = mysql.createConnection({
   host: '127.0.0.1',
   user: 'root',
   password: '', // Deja la contraseña en blanco
   database: 'SECURECITY2', // Reemplaza 'securecity' con el nombre de tu base de datos local
   port: 3306,
-});
+}); */
 
 
-connection.connect((err) => {
+/* connection.connect((err) => {
   if (err) {
     console.error('Error al conectar a la base de datos:', err);
   } else {
     console.log('Conexión exitosa a MySQL');
   }
-});
+}); */
 
 app.use(express.urlencoded({ extended: true }));
 

@@ -6,9 +6,8 @@ const mysql = require('mysql2');
 const connection = mysql.createConnection({
   host: '127.0.0.1',
   user: 'root',
-  password: '', // Deja la contraseña en blanco
-  database: 'SECURECITY2', // Reemplaza 'securecity' con el nombre de tu base de datos local
-  port: 3306,
+  password: '', 
+  database: 'SECURECITY2', 
 });
 
 // Ruta para editar un usuario
