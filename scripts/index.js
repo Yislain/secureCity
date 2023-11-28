@@ -1,11 +1,10 @@
 const express = require('express');
 const session = require('express-session');
-const mysql = require('mysql2');
 const path = require('path');
-const adminRoutes = require('./adminRoutes'); // Importa las rutas de administrador
-const app = express();
+const adminRoutes = require('./adminRoutes');
 const cuentaRouter = require('./cuenta');
-app.use('/cuenta', cuentaRouter);
+
+const app = express();
 
 // Configuración del motor de plantillas EJS
 app.set('view engine', 'ejs');
@@ -23,52 +22,37 @@ app.use(
   })
 );
 
-// Conexión a la base de datos MySQL en PlanetScale sin verificar el certificado del servidor
-/* const connection = mysql.createConnection({
-  host: '127.0.0.1',
-  user: 'root',
-  password: '', // Deja la contraseña en blanco
-  database: 'SECURECITY2', // Reemplaza 'securecity' con el nombre de tu base de datos local
-  port: 3306,
-}); */
-
-
-/* connection.connect((err) => {
-  if (err) {
-    console.error('Error al conectar a la base de datos:', err);
-  } else {
-    console.log('Conexión exitosa a MySQL');
-  }
-}); */
-
-app.use(express.urlencoded({ extended: true }));
+// Rutas de cuenta
+app.use('/cuenta', cuentaRouter);
 
 // Rutas generales
 app.get('/', (req, res) => {
-  res.render('index', { usuario: req.session.user }); // Renderiza la página de inicio y pasa el usuario autenticado
+  res.render('index', { usuario: req.session.user });
 });
 
+// Rutas adicionales (puedes agregar más según tus necesidades)
 app.get('/inicio', (req, res) => {
-  res.render('index'); // Renderiza la página de inicio
+  res.render('index');
 });
 
 app.get('/index-session', (req, res) => {
-  res.render('index-session'); // Renderiza la página de inicio
+  res.render('index-session');
 });
+
 app.get('/reportadelito-session', (req, res) => {
-  res.render('reportadelito-session'); // Renderiza la página de inicio
+  res.render('reportadelito-session');
 });
 
 app.get('/nosotros-session', (req, res) => {
-  res.render('nosotros-session'); // Renderiza la página de inicio
+  res.render('nosotros-session');
 });
 
 app.get('/prevencion-session', (req, res) => {
-  res.render('prevencion-session'); // Renderiza la página de inicio
+  res.render('prevencion-session');
 });
 
 app.get('/login', (req, res) => {
-  res.render('login', { registroExitoso: false }); // Define el valor de registroExitoso
+  res.render('login', { registroExitoso: false });
 });
 
 app.get('/reportadelito', (req, res) => {
@@ -90,7 +74,7 @@ app.get('/registro', (req, res) => {
 app.get('/cuenta', (req, res) => {
   const userId = req.session.userId;
   if (userId) {
-    // Consulta la base de datos para obtener los datos del usuario y pasarlos a la plantilla
+    // Simulación de consulta a la base de datos
     const usuario = { nombre: 'Nombre del Usuario' };
     res.render('cuenta', { usuario });
   } else {
@@ -99,42 +83,23 @@ app.get('/cuenta', (req, res) => {
 });
 
 app.post('/registro', (req, res) => {
+  // Código de registro sin conexión a base de datos
   const { nombre, correo, contrasena } = req.body;
-  const query = 'INSERT INTO USUARIOS (nombre, correo, contrasena) VALUES (?, ?, ?)';
-  connection.query(query, [nombre, correo, contrasena], (err) => {
-    if (err) {
-      console.error('Error al registrar el usuario:', err);
-      res.status(500).send('Error interno del servidor');
-    } else {
-      const usuario = { nombre };
-      req.session.userId = 123;
-      res.render('bienvenida', { usuario });
-    }
-  });
+  // Puedes agregar lógica adicional aquí sin interactuar con la base de datos
+  const usuario = { nombre };
+  req.session.userId = 123;
+  res.render('bienvenida', { usuario });
 });
 
 app.post('/login', (req, res) => {
+  // Código de inicio de sesión sin conexión a base de datos
   const { correo, contrasena } = req.body;
-  const query = 'SELECT id FROM USUARIOS WHERE correo = ? AND contrasena = ?';
-  connection.query(query, [correo, contrasena], (err, results) => {
-    if (err) {
-      console.error('Error al iniciar sesión:', err);
-      res.status(500).send('Error interno del servidor');
-    } else if (results.length === 0) {
-      res.status(401).send('Credenciales incorrectas');
-    } else {
-      req.session.userId = results[0].id;
-      if (correo === 'admin' && contrasena === 'admin') {
-        req.session.isAdmin = true;
-        res.redirect('/adminpanel');
-      } else {
-        req.session.isAdmin = false;
-        res.redirect('/bienvenida');
-      }
-    }
-  });
+  // Puedes agregar lógica adicional aquí sin interactuar con la base de datos
+  req.session.userId = 123; // Establece un ID de usuario ficticio
+  res.redirect('/bienvenida');
 });
 
+// Ruta de bienvenida
 app.get('/bienvenida', (req, res) => {
   const userId = req.session.userId;
   if (userId) {
@@ -144,7 +109,6 @@ app.get('/bienvenida', (req, res) => {
     res.redirect('/login');
   }
 });
-
 
 // Implementa la ruta para cerrar sesión
 app.get('/logout', (req, res) => {
@@ -164,4 +128,3 @@ const port = process.env.PORT || 4200;
 app.listen(port, () => {
   console.log(`Servidor iniciado en http://localhost:${port}`);
 });
-
