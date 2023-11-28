@@ -1,6 +1,7 @@
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
+
 const adminRoutes = require('./adminRoutes');
 const cuentaRouter = require('./cuenta');
 
@@ -16,7 +17,7 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 // Configuración de la sesión
 app.use(
   session({
-    secret: 'tu_secreto_aqui', // Cambia a tu propio secreto
+    secret: 'tu_secreto_aqui',
     resave: true,
     saveUninitialized: true,
   })
